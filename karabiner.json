@@ -8,7 +8,10 @@
         {
             "complex_modifications": {
                 "parameters": {
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.simultaneous_threshold_milliseconds": 50,
+                    "basic.to_delayed_action_delay_milliseconds": 500,
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": [
                     {
@@ -16,7 +19,7 @@
                             {
                                 "description": "Change control to command+control+option+shift.",
                                 "from": {
-                                    "key_code": "left_control",
+                                    "key_code": "right_control",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -33,34 +36,192 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                              "description": "Change home to command + {",
+                              "from": {
+                                "key_code": "home",
+                                "modifiers": {
+                                    "optional": [
+                                        "any"
+                                    ]
+                                }
+                              },
+                              "to": [
+                                {
+                                  "key_code": "hyphen",
+                                  "modifiers": [
+                                    "left_command",
+                                    "left_shift"
+                                  ]
+                                }
+                              ],
+                              "type": "basic"
+                            },
+                            {
+                              "description": "Change end to command + }",
+                              "from": {
+                                "key_code": "end",
+                                "modifiers": {
+                                    "optional": [
+                                        "any"
+                                    ]
+                                }
+                              },
+                              "to": [
+                                {
+                                  "key_code": "equal_sign",
+                                  "modifiers": [
+                                    "left_command",
+                                    "left_shift"
+                                  ]
+                                }
+                              ],
+                              "type": "basic"
                             }
                         ]
                     }
                 ]
             },
             "devices": [],
-            "fn_function_keys": {
-                "f1": "display_brightness_decrement",
-                "f10": "mute",
-                "f11": "volume_decrement",
-                "f12": "volume_increment",
-                "f2": "display_brightness_increment",
-                "f3": "mission_control",
-                "f4": "launchpad",
-                "f5": "illumination_decrement",
-                "f6": "illumination_increment",
-                "f7": "rewind",
-                "f8": "play_or_pause",
-                "f9": "fastforward"
-            },
+            "fn_function_keys": [
+                {
+                    "from": {
+                        "key_code": "f1"
+                    },
+                    "to": {
+                        "key_code": "display_brightness_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f2"
+                    },
+                    "to": {
+                        "key_code": "display_brightness_increment"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f3"
+                    },
+                    "to": {
+                        "key_code": "mission_control"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f4"
+                    },
+                    "to": {
+                        "key_code": "launchpad"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f5"
+                    },
+                    "to": {
+                        "key_code": "illumination_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f6"
+                    },
+                    "to": {
+                        "key_code": "illumination_increment"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f7"
+                    },
+                    "to": {
+                        "key_code": "rewind"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f8"
+                    },
+                    "to": {
+                        "key_code": "play_or_pause"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f9"
+                    },
+                    "to": {
+                        "key_code": "fastforward"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f10"
+                    },
+                    "to": {
+                        "key_code": "mute"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f11"
+                    },
+                    "to": {
+                        "key_code": "volume_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f12"
+                    },
+                    "to": {
+                        "key_code": "volume_increment"
+                    }
+                }
+            ],
             "name": "Default profile",
-            "selected": true,
-            "simple_modifications": {
-                "caps_lock": "right_control"
+            "one_to_many_mappings": {
+                "end": [
+                    "left_command",
+                    "left_shift",
+                    "equal_sign"
+                ],
+                "home": [
+                    "left_command",
+                    "left_shift",
+                    "hyphen"
+                ],
+                "left_control": [
+                    "left_control",
+                    "left_shift",
+                    "left_option"
+                ],
+                "right_control": [
+                    "left_control",
+                    "left_shift",
+                    "left_option"
+                ]
             },
+            "selected": true,
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": {
+                        "key_code": "left_control"
+                    }
+                }
+            ],
+            "standalone_keys": {},
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
-                "keyboard_type": "ansi"
+                "country_code": 0,
+                "keyboard_type": "ansi",
+                "standalone_keys_delay_milliseconds": 200
             }
         }
     ]
