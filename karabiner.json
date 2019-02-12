@@ -19,7 +19,7 @@
                             {
                                 "description": "Change control to command+control+option+shift.",
                                 "from": {
-                                    "key_code": "left_control",
+                                    "key_code": "right_control",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -30,7 +30,7 @@
                                     {
                                         "key_code": "left_shift",
                                         "modifiers": [
-                                            "left_control",
+                                            "right_control",
                                             "left_option"
                                         ]
                                     }
@@ -210,6 +210,14 @@
                 {
                     "from": {
                         "key_code": "caps_lock"
+                    },
+                    "to": {
+                        "key_code": "left_control"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "left_control"
                     },
                     "to": {
                         "key_code": "right_control"
