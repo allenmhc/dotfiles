@@ -23,3 +23,9 @@ alias gco='git checkout'
 alias ga='git add'
 alias gdc='git diff --cached'
 alias gap='git add --patch'
+
+# vim
+alias vim="mvim -v"
+
+# YouTubeDL
+alias youtube-music='youtube-dl -x --audio-format m4a --audio-quality 9'
